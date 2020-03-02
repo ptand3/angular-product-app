@@ -1,0 +1,26 @@
+<h3>Cart List</h3>
+
+<table>
+    <tr>
+        <th>Name</th>
+        <th>Price</th>
+        <th>Quantity</th>
+        <th>Total</th>
+        <th>Remove Item</th>
+    </tr>
+
+    <tr *ngFor="let cartItem of cartItems" >
+        <td>{{ cartItem.name | uppercase }}</td>
+        <td>{{cartItem.price | currency : "INR" }}</td>
+        <td>{{cartItem.qty}}</td>
+        <td>{{cartItem.price * cartItem.qty | currency : "INR"}}</td>
+        <td><button (click) ="remove()">&#10005;</button></td>
+        
+    </tr> 
+</table>
+
+<ng-template #emptyTable>
+    <!--Angular template
+    # -template refrence variable-->
+    <span>No items in shopping cart</span>
+</ng-template>

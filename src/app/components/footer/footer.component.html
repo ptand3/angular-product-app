@@ -1,0 +1,13 @@
+<div appHighlight ="lightgray" #myHighLight="appHighlight">
+    <h3>Footer</h3>
+
+    <p>Copyrights 2020 {{appCompany}}</p>
+    <p>Date :
+        <!--Chaining of pipes-->
+        {{today |date : "fullDate" |lowercase }}
+    </p>
+    <p> Date {{ today | date :"dd/MM/yyyy"}}</p>
+    <p>Highlight color : {{ myHighLight.color }}</p>
+    <button (click)= "raise()">Raise</button>
+</div>
+

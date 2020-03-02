@@ -1,0 +1,39 @@
+<h2>Contact</h2>
+
+
+<!--
+    ?. -elvis operator - null check within angular template
+-->
+
+<p> Main Office city {{mainOffice?.city}} </p>
+
+<!--DOM reference within HTML-->
+
+<p #message></p>
+<input #greeting />
+
+<button (click) ="message.textContent = greeting.value">Set Message</button>
+<!--
+    Contact is parent component
+    address is a child component
+    
+    Passig data : parent to child property binding , @input
+
+    event coming from child is to subscribed by parent
+    @output
+    contactEvent
+    $event is refrenced to this.address coming from child
+-->
+
+<app-address [address]="headOffice" (contactEvent)="contactHandler($event)"> 
+    <h4>Head office</h4>
+</app-address>
+
+<hr/>
+
+<app-address [address]="branchOffice" (contactEvent)="contactHandler($event)">  
+<h4>Branch office</h4>
+</app-address>
+
+<pre>{{headOffice|json}}</pre>
+

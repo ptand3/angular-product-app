@@ -1,0 +1,43 @@
+<h2>Counter</h2>
+
+<!--
+    {{expression}} -String Interpolation,
+                   -evaluate the expression,
+                   -convert results into string
+
+    [property-name]="expr" -Property Binding : attribute bounded to the HTML element
+     property="fixedValue"  : one way binding
+
+     (eventName) =" expr" - Event Binding :
+
+     Two way Binding : [property + event binding]
+     [(property)] = "counter" //both component and view changes
+
+-->
+<p *ngIf ="counter % 2==0" appHighlight >Counter {{counter}}</p>
+<p>Counter +1 = {{counter +1 }}</p>
+
+<div>
+    <span>Counter</span>
+    <input [value]="counter + 2" />
+</div>
+
+<div>
+    <span>Two way binding</span>
+    <input [(ngModel)] ="counter" type="number"/>
+    <p> Counter is {{counter}}</p>
+</div>
+
+
+<button [disabled]="counter % 2 ==0">
+    {{counter % 2 ==0 ?" Disabled" : "Enabled"}}
+</button>
+
+<button (click) ="increment($event)">+1</button>
+<button (click) ="decrement()">-1</button>
+
+
+<!--Pipes-->
+<p>Power pipe 2^ counter  = {{ 2| power: counter}}</p>
+<p>Power pipe counter^3 = {{ counter| power: 3}}</p>
+<p>Power pipe counter^ counter  = {{ counter| power: counter}}</p>

@@ -1,0 +1,23 @@
+<div>
+    <!--ng content is transclude comming from angular
+    common module move content children here
+ng content data binding is executed in the context of parent scope but the data is 
+transfeered into child component-->
+    <ng-content></ng-content>
+    <hr />
+
+    <a routerLink ="/" 
+    class="button" routerLinkActive="success" [routerLinkActiveOptions] ="{exact: true}">Home</a>
+    <a routerLink ="/products" class="button" routerLinkActive="success">Products</a>
+    <a routerLink ="/cart" class="button" routerLinkActive="success">Cart</a>
+    <a routerLink ="/auth/login" class="button" routerLinkActive="success" *ngIf ="!(authenticated$ |async)">Login</a>
+    <button (click) ="logout()"  *ngIf ="(authenticated$ |async)">LogOut</button>
+    <a routerLink ="/contact" class="button" routerLinkActive="success">Contact</a>
+    <a routerLink ="/counter" class="button" routerLinkActive="success">Counter</a>
+    <a routerLink ="/about" class="button" routerLinkActive="success">About</a>
+    <a routerLink ="/checkout" class="button" routerLinkActive="success">CheckOut</a>
+    <button>
+        {{amount$ | async | currency :"INR"}}
+        ({{count$ | async}}) items
+    </button>
+</div>

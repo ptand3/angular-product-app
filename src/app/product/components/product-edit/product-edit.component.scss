@@ -1,0 +1,13 @@
+input.ng-invalid{
+    border: 1px solid red;
+
+}
+select.ng-invalid{
+    border: 1px solid red;
+}
+input.ng-dirty{
+    background: yellow;
+}
+select.ng-invalid{
+    background: yellow;
+}

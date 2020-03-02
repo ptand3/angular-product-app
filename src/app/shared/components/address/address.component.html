@@ -1,0 +1,7 @@
+<div>
+    <p>City {{address.city}}</p>
+    <p>State {{address.state}}</p>
+    <p *ngIf="address.pincode">Pincode {{address.pincode}}</p>
+
+    <button (click)="contact()">Contact</button>
+</div>
